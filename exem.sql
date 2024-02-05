@@ -72,6 +72,13 @@ select
     ekse 'expensive'
   END as type
 from  shop_products;
+19.
+select supermarket_id,supermarket_name,count(distinct product_id)
+from supermarkets
+join supermarket_locations using(supermarket_id)
+join customer_orders using(supermarket_location_id)
+join customer_order_details using(customer_order_id)
+group by(supermarket_id)
 
 20.
 create or replace function getProductListByOperationDate(operationDate DATE)
